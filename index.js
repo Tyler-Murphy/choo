@@ -128,6 +128,10 @@ Choo.prototype.mount = function mount (selector) {
 
 Choo.prototype.toString = function (location, state) {
   this.state = state || {}
+
+  assert.equal(typeof location, 'string', 'choo.toString: location should be type string')
+  assert.equal(typeof state, 'object', 'choo.toString: state should be type object')
+
   var html = this.router(location)
   return html.toString()
 }
